@@ -17,3 +17,15 @@ namespace Maroon {
 
 	};
 }
+
+#define MR_CORE_ERROR(...) ::Maroon::Log::GetCoreLogger()->error(__VA_ARGS__)
+#define MR_CORE_WARN(...) ::Maroon::Log::GetCoreLogger()->warn(__VA_ARGS__)
+#define MR_CORE_INFO(...) ::Maroon::Log::GetCoreLogger()->info(__VA_ARGS__)
+#define MR_CORE_TRACE(...) ::Maroon::Log::GetCoreLogger()->trace(__VA_ARGS__)
+#define MR_CORE_FATAL(...) ::Maroon::Log::GetCoreLogger()->fatal(__VA_ARGS__)
+
+#define MR_ERROR(...) ::Maroon::Log::GetClientLogger()->error(__VA_ARGS__)
+#define MR_WARN(...) ::Maroon::Log::GetClientLogger()->warn(__VA_ARGS__)
+#define MR_INFO(...) ::Maroon::Log::GetClientLogger()->info(__VA_ARGS__)
+#define MR_TRACE(...) ::Maroon::Log::GetClientLogger()->trace(__VA_ARGS__)
+#define MR_FATAL(...) ::Maroon::Log::GetClientLogger()->fatal(__VA_ARGS__)
