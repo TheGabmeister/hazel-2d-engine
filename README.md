@@ -1,2 +1,1 @@
-# maroon
-Maroon 3D Game Engine
+# Maroon 3D Game Engine
