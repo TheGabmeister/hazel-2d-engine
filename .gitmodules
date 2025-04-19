@@ -1,0 +1,3 @@
+[submodule "maroon/thirdparty/spdlog"]
+	path = maroon/thirdparty/spdlog
+	url = https://github.com/gabime/spdlog.git
