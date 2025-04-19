@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sandbox", "sandbox\sandbox.vcxproj", "{7AE35B7F-6D70-4120-878B-0C5493BECB0B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "maroon", "maroon\maroon.vcxproj", "{68A73DCF-6CB6-40B9-9807-8E317BE5AF81}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{68A73DCF-6CB6-40B9-9807-8E317BE5AF81}.Debug|x64.ActiveCfg = Debug|x64
+		{68A73DCF-6CB6-40B9-9807-8E317BE5AF81}.Debug|x64.Build.0 = Debug|x64
+		{68A73DCF-6CB6-40B9-9807-8E317BE5AF81}.Release|x64.ActiveCfg = Release|x64
+		{68A73DCF-6CB6-40B9-9807-8E317BE5AF81}.Release|x64.Build.0 = Release|x64
+		{7AE35B7F-6D70-4120-878B-0C5493BECB0B}.Debug|x64.ActiveCfg = Debug|x64
+		{7AE35B7F-6D70-4120-878B-0C5493BECB0B}.Debug|x64.Build.0 = Debug|x64
+		{7AE35B7F-6D70-4120-878B-0C5493BECB0B}.Release|x64.ActiveCfg = Release|x64
+		{7AE35B7F-6D70-4120-878B-0C5493BECB0B}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {943326F7-E173-4D79-B777-20704D1BE4B7}
+	EndGlobalSection
+EndGlobal
