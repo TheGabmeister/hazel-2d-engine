@@ -14,7 +14,7 @@ namespace Maroon {
 	{
 		while (true)
 		{
-
+			// Do something here
 		}
 	}
 }
