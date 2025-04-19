@@ -8,12 +8,12 @@ namespace Maroon {
 	class Log
 	{
 		public:	
-			static void Init();
+			static void MAROON_API Init();
 			inline static MAROON_API std::shared_ptr<spdlog::logger>& GetCoreLogger() { return s_CoreLogger; }
-/*			inline static MAROON_API std::shared_ptr<spdlog::logger>& GetClientLogger() { return s_ClientLogger; }
+			inline static MAROON_API std::shared_ptr<spdlog::logger>& GetClientLogger() { return s_ClientLogger; }
 		private:
 			static std::shared_ptr<spdlog::logger> s_CoreLogger;
 			static std::shared_ptr<spdlog::logger> s_ClientLogger;
-*/
+
 	};
 }
