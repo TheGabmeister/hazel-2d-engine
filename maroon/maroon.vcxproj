@@ -83,6 +83,7 @@
     <ClInclude Include="src\maroon.h" />
     <ClInclude Include="src\maroon\application.h" />
     <ClInclude Include="src\maroon\core.h" />
+    <ClInclude Include="src\maroon\entrypoint.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\maroon\application.cpp" />

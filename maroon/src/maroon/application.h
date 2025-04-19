@@ -11,4 +11,6 @@ namespace Maroon
 		virtual ~Application();
 		void Run();
 	};
+
+	Application* CreateApplication();
 }
