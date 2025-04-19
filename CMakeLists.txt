@@ -14,7 +14,7 @@ set(CMAKE_GENERATOR_PLATFORM x64)
 # Specify build configurations
 set(CMAKE_CONFIGURATION_TYPES "Debug;Release;Dist" CACHE STRING "Available build types" FORCE)
 
-
+add_subdirectory("maroon/thirdparty/spdlog")
 
 # Add source files  
 file(GLOB_RECURSE MR_SANDBOX_SOURCES  
@@ -32,7 +32,10 @@ add_executable(sandbox ${MR_SANDBOX_SOURCES})
 add_library(maroon SHARED ${MR_MAROON_SOURCES})
 
 # Include directories
-target_include_directories(${PROJECT_NAME} PRIVATE src)
+target_include_directories(maroon PRIVATE "${CMAKE_SOURCE_DIR}/maroon/thirdparty/spdlog/include")
+target_include_directories(sandbox PRIVATE "${CMAKE_SOURCE_DIR}/maroon/thirdparty/spdlog/include")
+target_include_directories(sandbox PRIVATE "${CMAKE_SOURCE_DIR}/maroon/src")
+
 
 # Set preprocessor definitions
 if(WIN32)
@@ -43,14 +46,17 @@ if(WIN32)
    target_compile_definitions(sandbox PRIVATE  
       MR_PLATFORM_WINDOWS 
    )
+
+   # This is for fixing the spdlog/fmt error C2338: static_assert failed: 
+   # 'Unicode support requires compiling with /utf-8
+   target_compile_options(maroon PRIVATE /utf-8)
+   target_compile_options(sandbox PRIVATE /utf-8)
 endif()
 
+target_link_libraries(maroon PRIVATE 
+    spdlog::spdlog_header_only
+)
 
-# Set output directories
-#set_target_properties(${PROJECT_NAME} PROPERTIES
-#    RUNTIME_OUTPUT_DIRECTORY_DEBUG ${CMAKE_BINARY_DIR}/Debug
-#    RUNTIME_OUTPUT_DIRECTORY_RELEASE ${CMAKE_BINARY_DIR}/Release
-#)
-
-# Optional: Link additional libraries if needed
-# target_link_libraries(${PROJECT_NAME} PRIVATE some_library)
+target_link_libraries(sandbox PRIVATE 
+    maroon
+)
