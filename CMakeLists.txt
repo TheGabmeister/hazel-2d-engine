@@ -15,13 +15,13 @@ set(CMAKE_GENERATOR_PLATFORM x64)
 set(CMAKE_CONFIGURATION_TYPES "Debug;Release;Dist" CACHE STRING "Available build types" FORCE)
 
 add_subdirectory("maroon/thirdparty/spdlog")
-
+ 
 # Add source files  
 file(GLOB_RECURSE MR_SANDBOX_SOURCES  
    "${CMAKE_SOURCE_DIR}/sandbox/src/*.cpp"
    "${CMAKE_SOURCE_DIR}/sandbox/src/*.h"  
 )
-
+ 
 # Define source files for the maroon library
 file(GLOB_RECURSE MR_MAROON_SOURCES
    "${CMAKE_SOURCE_DIR}/maroon/src/*.cpp"
