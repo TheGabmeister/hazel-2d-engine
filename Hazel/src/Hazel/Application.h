@@ -1,11 +1,11 @@
 #pragma once
 
-#include "core.h"
-#include "events/event.h"
+#include "Core.h"
+#include "Events/Event.h"
 
-namespace Maroon 
+namespace Hazel 
 {
-	class MAROON_API Application
+	class HAZEL_API Application
 	{
 	public:
 		Application();

@@ -1,9 +1,9 @@
 #pragma once
 
-#include "event.h"
+#include "Event.h"
 #include <sstream>
 
-namespace Maroon {
+namespace Hazel {
 
 	class WindowResizeEvent : public Event
 	{

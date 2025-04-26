@@ -1,10 +1,10 @@
 #pragma once
 
-#include "../core.h"
+#include "../Core.h"
 #include <string>
 #include <functional>
 
-namespace Maroon {
+namespace Hazel {
 
 	// When an event occurs it immediately gets dispatched and must be dealt 
 	// with right then an there. For the future, a better strategy might be 

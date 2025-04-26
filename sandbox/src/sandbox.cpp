@@ -1,6 +1,6 @@
-#include <maroon.h>
+#include <Hazel.h>
 
-class Sandbox : public Maroon::Application
+class Sandbox : public Hazel::Application
 {
 public:
 	Sandbox()
@@ -14,7 +14,7 @@ public:
 	}
 };
 
-Maroon::Application* Maroon::CreateApplication()
+Hazel::Application* Hazel::CreateApplication()
 {
 	return new Sandbox();
 }

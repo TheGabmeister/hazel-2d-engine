@@ -1,9 +1,9 @@
 #include "application.h"
 
-#include "events/application_event.h"
-#include "log.h"
+#include "Events/ApplicationEvent.h"
+#include "Log.h"
 
-namespace Maroon {
+namespace Hazel {
 	Application::Application()
 	{
 
@@ -18,7 +18,7 @@ namespace Maroon {
 		WindowResizeEvent e(1280, 720);
 		if (e.IsInCategory(EventCategoryApplication))
 		{
-			MR_TRACE(e.ToString());
+			HZ_TRACE(e.ToString());
 		}
 		
 		while (true)

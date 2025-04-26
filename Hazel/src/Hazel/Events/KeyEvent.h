@@ -1,10 +1,10 @@
 #pragma once
 
-#include "event.h"
-#include "../key_codes.h"
+#include "Event.h"
+#include "../KeyCodes.h"
 #include <sstream>
 
-namespace Maroon {
+namespace Hazel {
 
 	class KeyEvent : public Event
 	{

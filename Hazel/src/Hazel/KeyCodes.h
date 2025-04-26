@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Maroon
+namespace Hazel
 {
 	using KeyCode = uint16_t;
 	
