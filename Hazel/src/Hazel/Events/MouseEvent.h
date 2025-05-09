@@ -1,6 +1,7 @@
 #pragma once
 
-#include "Event.h"
+#include "Hazel/Events/Event.h"
+#include "Hazel/Core/MouseCodes.h"
 
 namespace Hazel {
 
