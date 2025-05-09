@@ -16,7 +16,14 @@ set(CMAKE_EXE_LINKER_FLAGS_DIST    "" CACHE STRING "Linker flags for Dist config
 set(CMAKE_SHARED_LINKER_FLAGS_DIST "" CACHE STRING "Linker flags for Dist config" FORCE)
 set(CMAKE_MODULE_LINKER_FLAGS_DIST "" CACHE STRING "Linker flags for Dist config" FORCE)
 
+# GLFW variables
+set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
+set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
+set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
+set(GLFW_INSTALL OFF CACHE BOOL "" FORCE)
+
 add_subdirectory("Hazel/vendor/spdlog")
+add_subdirectory("Hazel/vendor/GLFW")
   
 file(GLOB_RECURSE MR_SANDBOX_SOURCES  
    "${CMAKE_SOURCE_DIR}/sandbox/src/*.cpp"
@@ -31,13 +38,17 @@ file(GLOB_RECURSE HZ_HAZEL_SOURCES
 add_executable(sandbox ${MR_SANDBOX_SOURCES})
 add_library(hazel SHARED ${HZ_HAZEL_SOURCES})
 
-target_include_directories(hazel PRIVATE "${CMAKE_SOURCE_DIR}/Hazel/vendor/spdlog/include")
 target_include_directories(hazel PRIVATE "${CMAKE_SOURCE_DIR}/Hazel/src")
+target_include_directories(hazel PRIVATE "${CMAKE_SOURCE_DIR}/Hazel/vendor/spdlog/include")
+target_include_directories(hazel PRIVATE "${CMAKE_SOURCE_DIR}/Hazel/vendor/GLFW/include")
+
 target_include_directories(sandbox PRIVATE "${CMAKE_SOURCE_DIR}/Hazel/vendor/spdlog/include")
 target_include_directories(sandbox PRIVATE "${CMAKE_SOURCE_DIR}/Hazel/src")
 
 # target_precompile_headers(hazel PRIVATE "${CMAKE_SOURCE_DIR}/Hazel/src/hzpch.h")
 target_precompile_headers(hazel PRIVATE "$<$<COMPILE_LANGUAGE:CXX>:${CMAKE_SOURCE_DIR}/Hazel/src/hzpch.h>")
+
+# target_compile_definitions("${CMAKE_PROJECT_NAME}" PUBLIC GLFW_INCLUDE_NONE=1) 
 
 # Set preprocessor definitions
 if(WIN32)
@@ -57,6 +68,7 @@ endif()
 
 target_link_libraries(hazel PRIVATE 
     spdlog::spdlog_header_only
+    glfw
 )
 
 target_link_libraries(sandbox PRIVATE 
