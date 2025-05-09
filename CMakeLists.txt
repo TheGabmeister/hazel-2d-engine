@@ -16,7 +16,6 @@ set(CMAKE_EXE_LINKER_FLAGS_DIST    "" CACHE STRING "Linker flags for Dist config
 set(CMAKE_SHARED_LINKER_FLAGS_DIST "" CACHE STRING "Linker flags for Dist config" FORCE)
 set(CMAKE_MODULE_LINKER_FLAGS_DIST "" CACHE STRING "Linker flags for Dist config" FORCE)
 
-
 add_subdirectory("Hazel/vendor/spdlog")
   
 file(GLOB_RECURSE MR_SANDBOX_SOURCES  
@@ -33,9 +32,12 @@ add_executable(sandbox ${MR_SANDBOX_SOURCES})
 add_library(hazel SHARED ${HZ_HAZEL_SOURCES})
 
 target_include_directories(hazel PRIVATE "${CMAKE_SOURCE_DIR}/Hazel/vendor/spdlog/include")
+target_include_directories(hazel PRIVATE "${CMAKE_SOURCE_DIR}/Hazel/src")
 target_include_directories(sandbox PRIVATE "${CMAKE_SOURCE_DIR}/Hazel/vendor/spdlog/include")
 target_include_directories(sandbox PRIVATE "${CMAKE_SOURCE_DIR}/Hazel/src")
 
+# target_precompile_headers(hazel PRIVATE "${CMAKE_SOURCE_DIR}/Hazel/src/hzpch.h")
+target_precompile_headers(hazel PRIVATE "$<$<COMPILE_LANGUAGE:CXX>:${CMAKE_SOURCE_DIR}/Hazel/src/hzpch.h>")
 
 # Set preprocessor definitions
 if(WIN32)
